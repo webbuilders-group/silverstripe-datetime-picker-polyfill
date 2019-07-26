@@ -1,0 +1,33 @@
+{
+  "name": "silverstripe-datetime-picker-polyfill",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@date-io/moment": "^1.3.8",
+    "@material-ui/core": "^3.2.0",
+    "material-ui-pickers": "^2.2.4",
+    "moment": "^2.24.0",
+    "react-text-mask": "^5.4.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "webpack": "^3.12.0"
+  },
+  "bin": {
+    "webpack": "./node_modules/webpack/bin/webpack.js"
+  },
+  "engines": {
+    "node": "^10.x"
+  },
+  "scripts": {
+    "build": "webpack -p --bail",
+    "watch": "webpack --watch"
+  },
+  "author": "Webbuilders Group",
+  "private": true
+}

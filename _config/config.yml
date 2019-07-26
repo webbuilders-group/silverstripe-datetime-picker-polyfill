@@ -1,0 +1,8 @@
+---
+Name: datetimepolyfill
+After:
+    - "framework/*"
+---
+SilverStripe\Forms\DatetimeField:
+    extensions:
+        - 'WebbuildersGroup\DatetimePickerPolyfill\Extensions\Polyfiller'

@@ -1,0 +1,31 @@
+{
+	"name" : "webbuilders-group/silverstripe-datetime-picker-polyfill",
+	"description" : "Adds a polyfill for browsers that do not support the input type datetime-local to the DatetimeField form field",
+	"type" : "silverstripe-vendormodule",
+	"keywords" : [
+		"silverstripe",
+		"assets"
+	],
+	"license" : "BSD-3-Clause",
+	"authors" : [{
+			"name" : "Ed Chipman",
+			"homepage" : "https://webbuildersgroup.com",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"silverstripe/admin" : "~1.4"
+	},
+	"support" : {
+		"issues" : "https://github.com/webbuilders-group/silverstripe-datetime-picker-polyfill/issues"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		},
+		"expose": [
+            "css",
+            "javascript"
+        ]
+	}
+}
