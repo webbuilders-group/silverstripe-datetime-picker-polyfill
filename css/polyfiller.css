@@ -1,1 +1,65 @@
-@charset "ISO-8859-1";
+.datetime-polyfiller {
+    width: 100%;
+}
+
+.datetime-polyfiller > div {
+    width: 100%;
+    height: calc(1.5384em + 1.077rem + 2px);
+    padding: 0.5385rem .7692rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5384;
+    color: #566b8d;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #cbd3df;
+    border-radius: .23rem;
+    
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    
+    
+    -webkit-transition: border-color 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+    -o-transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-box-shadow 0.15s ease-in-out;
+}
+
+.datetime-polyfiller > div:focus-within {
+    background-color: #FFFFFF;
+    
+    color: #566B8D;
+    
+    border-color: #66AFE9;
+    
+    outline: 0;
+    
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), rgba(102, 175, 233, 0.6);
+}
+
+.datetime-polyfiller > div:before,
+.datetime-polyfiller > div:after {
+    display: none;
+}
+
+.datetime-polyfiller p {
+    background: #F8D4D8;
+    
+    position: relative;
+    
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    color: #71141F !important;
+    
+    border: 1px solid #F5C3C8;
+    
+    margin: 0 0 1rem;
+    padding: 0.75rem 1.25rem;
+    
+    line-height: 1.5384;
+    
+    border-radius: 0.23rem;
+}

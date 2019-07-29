@@ -5,6 +5,14 @@ import modernizr from 'modernizr';
 import jQuery from 'jquery';
 import DateMomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider, InlineDateTimePicker } from 'material-ui-pickers';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    palette: {
+      primary: {main: '#005A93'},
+      secondary: {main: '#43C7F4'},
+    },
+});
 
 class DateTimeFieldPolyfill extends React.Component {
     constructor(props) {
@@ -22,19 +30,18 @@ class DateTimeFieldPolyfill extends React.Component {
         const options = {
             value: (initialValue || null),
             onChange: handleChange,
-            emptyLabel: 'Example: ' + moment().endOf('month').format('L LT'),
+            placeholder: 'Example: ' + moment().endOf('month').format('L LT'),
             format: 'L LT',
             clearable: true,
         };
         
         return (
-                <MuiPickersUtilsProvider utils={DateMomentUtils}>
-                    <InlineDateTimePicker
-                        keyboard
-                        {...options}
-                    />
-                    <input type="hidden" name={this.props.name} value={this.state.value}/>
-                </MuiPickersUtilsProvider>
+                <MuiThemeProvider theme={theme}>
+                    <MuiPickersUtilsProvider utils={DateMomentUtils}>
+                        <InlineDateTimePicker keyboard className="datetime-polyfiller" {...options}/>
+                        <input type="hidden" name={this.props.name} value={this.state.value}/>
+                    </MuiPickersUtilsProvider>
+                </MuiThemeProvider>
             );
     }
     
