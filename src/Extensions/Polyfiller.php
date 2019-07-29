@@ -11,6 +11,7 @@ class Polyfiller extends Extension
      */
     public function onBeforeRender($context, $properties)
     {
+        Requirements::css('webbuilders-group/silverstripe-datetime-picker-polyfill: css/polyfiller.css');
         Requirements::javascript('webbuilders-group/silverstripe-datetime-picker-polyfill: javascript/polyfiller.js');
     }
 }
