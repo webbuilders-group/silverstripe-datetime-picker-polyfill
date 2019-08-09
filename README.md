@@ -7,7 +7,8 @@ Adds a polyfill for browsers that do not support the input type datetime-local t
 
 
 ## Requirements
-* SilverStripe Admin 1.0+
+* SilverStripe 4.4+
+* SilverStripe Admin 1.4+
 
 
 ## Installation
