@@ -43,6 +43,7 @@ class DateTimeFieldPolyfill extends React.Component {
             clearable: true,
         };
         
+        
         return (
                 <MuiThemeProvider theme={theme}>
                     <MuiPickersUtilsProvider utils={DateMomentUtils}>
@@ -57,6 +58,10 @@ class DateTimeFieldPolyfill extends React.Component {
         this.setState({
             value: date.format('YYYY-MM-DDTHH:mm:ss'),
         });
+        
+        const hiddenInput = jQuery('input[name=' + this.props.name + ']:hidden');
+        hiddenInput.trigger('change');
+        hiddenInput.parent().find('input[type=text]').trigger('change');
     }
 }
 
@@ -67,7 +72,7 @@ if (modernizr.inputtypes['datetime-local'] == false) {
             $('input[type=datetime-local]').entwine({
                 onadd() {
                     ReactDOM.render(
-                        <DateTimeFieldPolyfill value={this.val()} name={this.attr('name')}/>,
+                        <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')}/>,
                         this.parent()[0]
                     );
                 },
