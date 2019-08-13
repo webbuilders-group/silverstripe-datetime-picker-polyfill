@@ -69,7 +69,7 @@ class DateTimeFieldPolyfill extends React.Component {
 if (modernizr.inputtypes['datetime-local'] == false) {
     (function($) {
         $.entwine('ss', function($) {
-            $('input[type=datetime-local]').entwine({
+            $('input[type=datetime-local]:not([readonly])').entwine({
                 onadd() {
                     ReactDOM.render(
                         <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')}/>,
