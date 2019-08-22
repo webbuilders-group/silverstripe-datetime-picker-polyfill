@@ -1,4 +1,4 @@
-SilverStripe Login Files
+DateTime Picker Polyfill
 =================
 Adds a polyfill for browsers that do not support the input type datetime-local to the DatetimeField form field
 
