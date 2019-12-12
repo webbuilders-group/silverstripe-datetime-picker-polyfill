@@ -43,6 +43,13 @@ class DateTimeFieldPolyfill extends React.Component {
             clearable: true,
         };
         
+        if (this.props.max) {
+            options.maxDate = this.props.max;
+        }
+        
+        if (this.props.min) {
+            options.minDate = this.props.min;
+        }
         
         return (
                 <MuiThemeProvider theme={theme}>
@@ -72,7 +79,7 @@ if (modernizr.inputtypes['datetime-local'] == false) {
             $('input[type=datetime-local]:not([readonly])').entwine({
                 onadd() {
                     ReactDOM.render(
-                        <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')}/>,
+                        <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')} min={this.attr('min')} max={this.attr('max')}/>,
                         this.parent()[0]
                     );
                 },
