@@ -10,6 +10,14 @@ Adds a polyfill for browsers that do not support the input type datetime-local t
 * SilverStripe 4.4+
 * SilverStripe Admin 1.4+
 
+#### When used outside the SilverStripe Admin
+* React ^16.6.1
+* ReactDom ^16.6.1
+* MomentJS
+* ModernizerJS (with at least inputtypes)
+* classnames ^2.2.6
+* prop-types ^15.6.2
+
 
 ## Installation
 ```

@@ -7,7 +7,9 @@ use SilverStripe\View\Requirements;
 class Polyfiller extends Extension
 {
     /**
-     * @TODO
+     * Add the requirements used to polyfill in unsupported browsers
+     * @param array $context
+     * @param array $properties
      */
     public function onBeforeRender($context, $properties)
     {
