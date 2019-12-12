@@ -21,7 +21,7 @@ Adds a polyfill for browsers that do not support the input type datetime-local t
 
 ## Installation
 ```
-composer require webbuilders-group/silverstripe-login-files
+composer require webbuilders-group/silverstripe-datetime-picker-polyfill
 ```
 
 ## Configuration
