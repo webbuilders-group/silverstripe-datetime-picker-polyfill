@@ -64,7 +64,6 @@ class DateTimeFieldPolyfill extends React.Component {
     componentDidMount() {
         var domNode = ReactDOM.findDOMNode(this);
         if (domNode) {
-            console.log(domNode.parentNode);
             jQuery(domNode.parentNode).on('datetime-polyfiller.change', (e, data) => this._setValueFromExternal(e, data));
         }
     }
@@ -80,7 +79,6 @@ class DateTimeFieldPolyfill extends React.Component {
     }
     
     _setValueFromExternal(e, data) {
-        console.log(data);
         this.setState({
             value: data.value,
         });
