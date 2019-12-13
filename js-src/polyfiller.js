@@ -28,6 +28,8 @@ class DateTimeFieldPolyfill extends React.Component {
         
         this.state = {
             value: this.props.value,
+            disabled: this.props.disabled,
+            readOnly: this.props.readonly,
         };
     }
     
@@ -41,6 +43,8 @@ class DateTimeFieldPolyfill extends React.Component {
             placeholder: 'Example: ' + moment().endOf('month').format('L LT'),
             format: 'L LT',
             clearable: true,
+            disabled: this.state.disabled,
+            readOnly: this.state.readonly,
         };
         
         if (this.props.max) {
@@ -51,10 +55,12 @@ class DateTimeFieldPolyfill extends React.Component {
             options.minDate = this.props.min;
         }
         
+        const className = 'datetime-polyfiller' + (this.state.disabled ? ' disabled' : '') + (this.state.readonly ? ' readonly' : '');
+        
         return (
                 <MuiThemeProvider theme={theme}>
                     <MuiPickersUtilsProvider utils={DateMomentUtils}>
-                        <InlineDateTimePicker keyboard className="datetime-polyfiller" {...options}/>
+                        <InlineDateTimePicker keyboard className={className} {...options}/>
                         <input type="hidden" name={this.props.name} value={this.state.value}/>
                     </MuiPickersUtilsProvider>
                 </MuiThemeProvider>
@@ -64,7 +70,10 @@ class DateTimeFieldPolyfill extends React.Component {
     componentDidMount() {
         var domNode = ReactDOM.findDOMNode(this);
         if (domNode) {
-            jQuery(domNode.parentNode).on('datetime-polyfiller.change', (e, data) => this._setValueFromExternal(e, data));
+            jQuery(domNode.parentNode)
+                .on('setValue.datetime-polyfiller', (e, data) => this._setValueFromExternal(e, data))
+                .on('setDisabled.datetime-polyfiller', (e, data) => this._setDisabledFromExternal(e, data))
+                .on('setReadonly.datetime-polyfiller', (e, data) => this._setReadonlyFromExternal(e, data));
         }
     }
     
@@ -81,6 +90,24 @@ class DateTimeFieldPolyfill extends React.Component {
     _setValueFromExternal(e, data) {
         this.setState({
             value: data.value,
+            disabled: this.state.disabled,
+            readonly: this.state.readonly,
+        });
+    }
+    
+    _setDisabledFromExternal(e, data) {
+        this.setState({
+            value: this.state.value,
+            disabled: data.value,
+            readonly: this.state.readonly,
+        });
+    }
+    
+    _setReadonlyFromExternal(e, data) {
+        this.setState({
+            value: this.state.value,
+            disabled: this.state.disabled,
+            readonly: data.value,
         });
     }
 }
@@ -92,7 +119,7 @@ if (modernizr.inputtypes['datetime-local'] == false) {
             $('input[type=datetime-local]:not([readonly])').entwine({
                 onadd() {
                     ReactDOM.render(
-                        <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')} min={this.attr('min')} max={this.attr('max')}/>,
+                        <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')} min={this.attr('min')} max={this.attr('max')} disabled={this.prop('disabled')} readonly={this.prop('readonly')}/>,
                         this.parent()[0]
                     );
                 },
