@@ -61,6 +61,14 @@ class DateTimeFieldPolyfill extends React.Component {
             );
     }
     
+    componentDidMount() {
+        var domNode = ReactDOM.findDOMNode(this);
+        if (domNode) {
+            console.log(domNode.parentNode);
+            jQuery(domNode.parentNode).on('datetime-polyfiller.change', (e, data) => this._setValueFromExternal(e, data));
+        }
+    }
+    
     _handleChange(date) {
         this.setState({
             value: date.format('YYYY-MM-DDTHH:mm:ss'),
@@ -69,6 +77,13 @@ class DateTimeFieldPolyfill extends React.Component {
         const hiddenInput = jQuery('input[name=' + this.props.name + ']:hidden');
         hiddenInput.trigger('change');
         hiddenInput.parent().find('input[type=text]').trigger('change');
+    }
+    
+    _setValueFromExternal(e, data) {
+        console.log(data);
+        this.setState({
+            value: data.value,
+        });
     }
 }
 
