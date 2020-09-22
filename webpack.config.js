@@ -12,7 +12,7 @@ const config = [
     output: {
         path: rootDir,
         filename: 'javascript/[name].js',
-        devtoolModuleFilenameTemplate: function(opts) {
+        /*devtoolModuleFilenameTemplate: function(opts) {
             if(opts.resource.search('./js-src/')>=0 || opts.resource.search('./javascript/')>=0 || opts.resource.search('javascript/')==0) {
                 return '../../'+(opts.resourcePath)+'?'+(opts.hash);
             }
@@ -25,7 +25,7 @@ const config = [
             }
             
             return 'webpack:///'+(opts.resourcePath);
-        }
+        }*/
     },
     devtool: 'nosources-source-map',
     module: {
@@ -40,11 +40,11 @@ const config = [
                                     ['@babel/preset-env', { modules: false }],
                                     '@babel/preset-react',
                                 ],
-                        comments: false
-                    }
-                }
-            }
-        ]
+                        comments: false,
+                    },
+                },
+            },
+        ],
     },
     externals: {
             'apollo-client': 'ApolloClient',
@@ -133,7 +133,7 @@ const config = [
             'lib/TinyMCEActionRegistrar': 'TinyMCEActionRegistrar',
             'lib/ShortcodeSerialiser': 'ShortcodeSerialiser',
             'components/Loading/Loading': 'Loading',
-        }
+        },
     },
 ];
 

@@ -4,7 +4,7 @@ import moment from 'moment';
 import modernizr from 'modernizr';
 import jQuery from 'jquery';
 import DateMomentUtils from '@date-io/moment';
-import { MuiPickersUtilsProvider, InlineDateTimePicker } from 'material-ui-pickers';
+import { MuiPickersUtilsProvider, KeyboardDateTimePicker } from '@material-ui/pickers';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
@@ -60,7 +60,7 @@ class DateTimeFieldPolyfill extends React.Component {
         return (
                 <MuiThemeProvider theme={theme}>
                     <MuiPickersUtilsProvider utils={DateMomentUtils}>
-                        <InlineDateTimePicker keyboard className={className} {...options}/>
+                        <KeyboardDateTimePicker variant="inline" className={className} {...options}/>
                         <input type="hidden" name={this.props.name} value={this.state.value}/>
                     </MuiPickersUtilsProvider>
                 </MuiThemeProvider>
