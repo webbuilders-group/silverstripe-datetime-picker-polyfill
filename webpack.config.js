@@ -4,6 +4,7 @@ const rootDir = Path.resolve();
 
 const config = [
   {
+    mode: 'development',
     name: 'js',
     entry: {
         'polyfiller': rootDir + '/js-src/polyfiller.js',
@@ -36,8 +37,8 @@ const config = [
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                                    ['env', { modules: false }],
-                                    'react',
+                                    ['@babel/preset-env', { modules: false }],
+                                    '@babel/preset-react',
                                 ],
                         comments: false
                     }
