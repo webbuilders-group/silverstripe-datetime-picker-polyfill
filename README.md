@@ -16,7 +16,7 @@ Adds a polyfill for browsers that do not support the input type datetime-local t
 * MomentJS
 * ModernizerJS (with at least inputtypes)
 * classnames ^2.2.6
-* prop-types ^15.6.2
+* prop-types ^15.7.2
 
 
 ## Installation
