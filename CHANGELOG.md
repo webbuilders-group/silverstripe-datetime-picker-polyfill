@@ -1,5 +1,7 @@
 # Change Log
 
+## [1.1.1](https://github.com/webbuilders-group/silverstripe-datetime-picker-polyfill/compare/1.1.0...1.1.1) (2021-01-26)
+
 ## [1.1.0](https://github.com/webbuilders-group/silverstripe-datetime-picker-polyfill/compare/1.0.0...1.1.0) (2020-10-09)
 
 

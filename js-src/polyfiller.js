@@ -79,7 +79,7 @@ class DateTimeFieldPolyfill extends React.Component {
     
     _handleChange(date) {
         this.setState({
-            value: date.format('YYYY-MM-DDTHH:mm:ss'),
+            value: (date ? date.format('YYYY-MM-DDTHH:mm:ss') : ''),
         });
         
         const hiddenInput = jQuery('input[name=' + this.props.name + ']:hidden');
