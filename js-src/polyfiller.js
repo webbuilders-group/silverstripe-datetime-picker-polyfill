@@ -40,8 +40,8 @@ class DateTimeFieldPolyfill extends React.Component {
         const options = {
             value: (initialValue || null),
             onChange: handleChange,
-            placeholder: 'Example: ' + moment().endOf('month').format('L LT'),
-            format: 'L LT',
+            placeholder: 'Example: ' + moment().endOf('month').format((this.props.format ? this.props.format : 'MM/DD/YYYY h:mm a')),
+            format: (this.props.format ? this.props.format : 'MM/DD/YYYY h:mm a'),
             clearable: true,
             disabled: this.state.disabled,
             readOnly: this.state.readonly,
@@ -119,7 +119,7 @@ if (modernizr.inputtypes['datetime-local'] == false) {
             $('input[type=datetime-local]:not([readonly])').entwine({
                 onadd() {
                     ReactDOM.render(
-                        <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')} min={this.attr('min')} max={this.attr('max')} disabled={this.prop('disabled')} readonly={this.prop('readonly')}/>,
+                        <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')} min={this.attr('min')} max={this.attr('max')} disabled={this.prop('disabled')} readonly={this.prop('readonly')} format={this.attr('data-date-format')}/>,
                         this.parent()[0]
                     );
                 },
