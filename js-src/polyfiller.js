@@ -118,9 +118,12 @@ if (modernizr.inputtypes['datetime-local'] == false) {
         $.entwine('ss', function($) {
             $('input[type=datetime-local]:not([readonly])').entwine({
                 onadd() {
+                    var wrapper = document.createElement('div');
+                    this.parent()[0].replaceChild(wrapper, this[0]);
+                    
                     ReactDOM.render(
                         <DateTimeFieldPolyfill id={this.attr('id')} value={this.val()} name={this.attr('name')} min={this.attr('min')} max={this.attr('max')} disabled={this.prop('disabled')} readonly={this.prop('readonly')} format={this.attr('data-date-format')}/>,
-                        this.parent()[0]
+                        wrapper
                     );
                 },
                 
