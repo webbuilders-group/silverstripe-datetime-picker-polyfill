@@ -27,5 +27,10 @@
             "css",
             "javascript"
         ]
-	}
+	},
+    "autoload": {
+        "psr-4": {
+            "WebbuildersGroup\\DatetimePickerPolyfill\\": "src/"
+        }
+    }
 }
